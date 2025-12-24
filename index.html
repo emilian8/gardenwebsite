@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rainbow Landscaping | Coachella Valley</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sand: #f7f2e9;
+      --sun: #f4a226;
+      --sage: #3c7a6b;
+      --teal: #0b6e6c;
+      --charcoal: #1f2c2f;
+      --white: #ffffff;
+      --shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 20% 20%, rgba(244, 162, 38, 0.12), transparent 35%),
+                  radial-gradient(circle at 80% 10%, rgba(11, 110, 108, 0.12), transparent 32%),
+                  radial-gradient(circle at 65% 70%, rgba(60, 122, 107, 0.14), transparent 38%),
+                  var(--sand);
+      color: var(--charcoal);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 26px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .logo-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--sun), var(--sage));
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+    }
+    nav a {
+      color: var(--charcoal);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 10px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    nav a:hover {
+      background: rgba(11, 110, 108, 0.08);
+      color: var(--teal);
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 22px 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: rgba(11, 110, 108, 0.1);
+      color: var(--teal);
+      border-radius: 999px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.1;
+      margin: 14px 0 16px;
+      color: var(--charcoal);
+    }
+    .hero p {
+      color: #304045;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--teal), var(--sage));
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-secondary {
+      background: rgba(244, 162, 38, 0.14);
+      color: var(--charcoal);
+    }
+    .cta-sub {
+      font-size: 14px;
+      color: #3b4a4e;
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 24px;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(244, 162, 38, 0.18), rgba(11, 110, 108, 0.18));
+      opacity: 0.12;
+      pointer-events: none;
+    }
+    .hero-quote {
+      position: relative;
+      font-size: 17px;
+      margin-bottom: 18px;
+      color: #223135;
+    }
+    .quote-footer {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #304045;
+      font-weight: 700;
+    }
+    .quote-badge {
+      background: rgba(11, 110, 108, 0.1);
+      color: var(--teal);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .cards {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 22px 70px;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(31, 44, 47, 0.04);
+    }
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: var(--teal);
+    }
+    .card p { color: #304045; font-size: 15px; }
+
+    .highlight {
+      max-width: 1100px;
+      margin: 0 auto 80px;
+      padding: 24px 22px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+      align-items: center;
+    }
+    .highlight .panel {
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 26px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .panel h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+    .panel p { color: #e3ecec; }
+    .panel .stat {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .stat strong { font-size: 34px; color: var(--sun); }
+    .panel .note {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #cbd5d6;
+    }
+    .steps {
+      display: grid;
+      gap: 14px;
+    }
+    .step {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+    .step .num {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(11, 110, 108, 0.12);
+      color: var(--teal);
+      font-weight: 800;
+    }
+    .step h4 {
+      margin-bottom: 6px;
+      color: var(--charcoal);
+    }
+    .step p { color: #304045; font-size: 15px; }
+
+    .footer {
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 26px 22px 38px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+    .footer h3 { margin-bottom: 10px; font-size: 18px; }
+    .footer a { color: var(--sun); text-decoration: none; }
+    .footer p { color: #d7e1e2; font-size: 14px; }
+
+    @media (max-width: 640px) {
+      header { padding: 20px 18px; }
+      nav { display: none; }
+      .hero { padding: 10px 18px 60px; }
+      .highlight { margin-bottom: 60px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <div class="logo-mark">R</div>
+      <span>Rainbow Landscaping</span>
+    </div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="badge">Coachella Valley Specialists</div>
+      <h1>Desert-smart landscapes with vibrant curb appeal.</h1>
+      <p>Rainbow Landscaping designs and maintains lush, water-wise outdoor spaces tailored for the Coachella Valley. From modern desert gardens to colorful resort-style yards, we deliver year-round beauty that thrives in the sun.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#contact">Request a consult</a>
+        <a class="btn btn-secondary" href="#services">View services</a>
+        <span class="cta-sub">Free on-site visit within 48 hours.</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="quote-badge">Featured Project</div>
+      <p class="hero-quote">“They transformed our La Quinta yard into a colorful, low-water oasis. New lighting, native plants, and stonework that looks incredible at night.”</p>
+      <div class="quote-footer">
+        <div>
+          <div>H. Ramirez</div>
+          <small>La Quinta Country Club</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="cards">
+    <div class="card">
+      <h3>Design & Build</h3>
+      <p>Custom plans, xeriscape concepts, lighting, hardscape, drip irrigation, and colorful plant palettes tuned to desert seasons.</p>
+    </div>
+    <div class="card">
+      <h3>Maintenance</h3>
+      <p>Weekly care, pruning, seasonal color rotations, lawn alternatives, and smart watering schedules that save up to 40% water.</p>
+    </div>
+    <div class="card">
+      <h3>Enhancements</h3>
+      <p>Path lighting, paver refresh, palm care, mulch and rock accents, and poolside greenery that stays vibrant in the heat.</p>
+    </div>
+    <div class="card">
+      <h3>Commercial</h3>
+      <p>HOA-friendly plans, resort frontage upgrades, and dependable crews who keep entrances clean and inviting.</p>
+    </div>
+  </section>
+
+  <section id="process" class="highlight">
+    <div class="panel">
+      <h2>Built for the desert, tailored to you.</h2>
+      <p>We blend bold color with drought-smart irrigation and native-friendly plantings to keep your landscape resilient, efficient, and welcoming.</p>
+      <div class="stat"><strong>25+</strong><span>years serving the Coachella Valley</span></div>
+      <div class="note">Palm Desert • La Quinta • Palm Springs • Indio • Rancho Mirage</div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <div>
+          <h4>Walk-through</h4>
+          <p>On-site visit to understand sun, soil, and style preferences.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <div>
+          <h4>Design & plan</h4>
+          <p>Plant palette, irrigation map, lighting, and materials selected for desert performance.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <div>
+          <h4>Build & care</h4>
+          <p>Skilled installation plus maintenance crews that keep everything thriving.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact" class="footer">
+    <div class="footer-inner">
+      <div>
+        <h3>Rainbow Landscaping</h3>
+        <p>Coachella Valley landscaping experts delivering colorful, water-wise outdoor spaces.</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p><strong>Call:</strong> (760) 555-1444<br><strong>Email:</strong> hello@rainbowlandscaping.com</p>
+        <p>Free site visit in Palm Desert, La Quinta, Palm Springs, Indio, and Rancho Mirage.</p>
+      </div>
+      <div>
+        <h3>Hours</h3>
+        <p>Mon–Sat: 7am–6pm<br>Sunday: By appointment</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
